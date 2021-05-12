@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="conversions.css" />
+  <title>Zak's Useful Conversions</title>
+</head>
+
+<body>
+  <div class="parent">
+    <div class="header">
+      <h1>Zak's Useful Conversions</h1>
+    </div>
+    <form>
+      <div class="details">
+        <div class="details-1">
+          <div class="distance">
+            <details>
+              <summary>Distance</summary>
+              <input type="number" id="distinput" placeholder="0"/>
+              <select id="distselect1">
+                <option value="millimeter">millimeters</option>
+                <option value="centimeter">centimeters</option>
+                <option value="meter">meters</option>
+                <option value="kilometer">kilometers</option>
+                <option value="inch">inches</option>
+                <option value="foot">feet</option>
+                <option value="yard">yards</option>
+                <option value="mile">miles</option>
+              </select>
+              <h>to</h>
+              <select id="distselect2">
+                <option value="millimeter">millimeters</option>
+                <option value="centimeter">centimeters</option>
+                <option value="meter">meters</option>
+                <option value="kilometer">kilometers</option>
+                <option value="inch">inches</option>
+                <option value="foot">feet</option>
+                <option value="yard">yards</option>
+                <option value="mile">miles</option>
+              </select>
+              <h> : </h>
+              <input id="distoutput" placeholder="0" readonly> </textarea>
+              <input type="button" id="distsubmit" value="Submit" />
+            </details>
+          </div>
+          <div class="volume">
+            <details>
+              <summary>Volume</summary>
+              <input type="number" id="volinput" placeholder="0"/>
+              <select id="volselect1">
+                <option value="liter">liters</option>
+                <option value="fluidOunce">ounces</option>
+                <option value="cup">cups</option>
+                <option value="pint">pints</option>
+                <option value="quart">quarts</option>
+                <option value="gallon">gallons</option>
+              </select>
+              <h>to</h>
+              <select id="volselect2">
+                <option value="liter">liters</option>
+                <option value="fluidOunce">ounces</option>
+                <option value="cup">cups</option>
+                <option value="pint">pints</option>
+                <option value="quart">quarts</option>
+                <option value="gallon">gallons</option>
+              </select>
+              <h> : </h>
+              <input id="voloutput" placeholder="0" readonly> </textarea>
+              <input type="button" id="volsubmit" value="Submit" />
+            </details>
+          </div>
+        </div>
+        <div class="details-2">
+          <div class="mass">
+            <details>
+              <summary>Mass / Weight</summary>
+              <input type="number" id="massinput" placeholder="0"/>
+              <select id="massselect1">
+                <option value="milligram">milligrams</option>
+                <option value="gram">grams</option>
+                <option value="kilogram">kilograms</option>
+                <option value="ounce">ounces</option>
+                <option value="pound">pounds</option>
+                <option value="stone">stones</option>
+              </select>
+              <h>to</h>
+              <select id="massselect2">
+                <option value="milligram">milligrams</option>
+                <option value="gram">grams</option>
+                <option value="kilogram">kilograms</option>
+                <option value="ounce">ounces</option>
+                <option value="pound">pounds</option>
+                <option value="stone">stones</option>
+              </select>
+              <h> : </h>
+              <input id="massoutput" placeholder="0" readonly>
+              <input type="button" id="masssubmit" value="Submit" />
+            </details>
+          </div>
+          <div class="time">
+            <details>
+              <summary>Time</summary>
+              <input type="number" id="timeinput" placeholder="0"/>
+              <select id="timeselect1">
+                <option value="second">seconds</option>
+                <option value="minute">minutes</option>
+                <option value="hour">hours</option>
+                <option value="day">days</option>
+                <option value="week">weeks</option>
+                <option value="year">years</option>
+              </select>
+              <h>to</h>
+              <select id="timeselect2">
+                <option value="second">seconds</option>
+                <option value="minute">minutes</option>
+                <option value="hour">hours</option>
+                <option value="day">days</option>
+                <option value="week">weeks</option>
+                <option value="year">years</option>
+              </select>
+              <h> : </h>
+              <input id="timeoutput" placeholder="0" readonly>
+              <input type="button" id="timesubmit" value="Submit" />
+            </details>
+          </div>
+        </div>
+        <div class="details-3">
+          <div class="temperature">
+            <details>
+              <summary>Temperature</summary>
+              <input type="number" id="tempinput" placeholder="0"/>
+              <select id="tempselect1">
+                <option value="fahrenheit">degrees Fahrenheit</option>
+                <option value="centigrade">degrees Centigrade</option>
+                <option value="kelvin">Kelvin</option>
+              </select>
+              <h>to</h>
+              <select id="tempselect2">
+                <option value="fahrenheit">degrees Fahrenheit</option>
+                <option value="centigrade">degrees Centigrade</option>
+                <option value="kelvin">Kelvin</option>
+              </select>
+              <h> : </h>
+              <input id="tempoutput" placeholder="0" readonly>
+              <input type="button" id="tempsubmit" value="Submit" />
+            </details>
+          </div>
+          <div class="currency">
+            <details>
+              <summary>Currency</summary>
+              <input type="number" id="currinput" placeholder="0"/>
+              <select id="currselect1">
+                <option value="USD">US Dollars</option>
+                <option value="GBP">Pounds Sterling</option>
+                <option value="EUR">Euro</option>
+                <option value="AUD">Australian Dollars</option>
+                <option value="CNY">Yuan</option>
+                <option value="CAD">Canadian Dollars</option>
+                <option value="JPY">Yen</option>
+              </select>
+              <h>to</h>
+              <select id="currselect2">
+                <option value="USD">US Dollars</option>
+                <option value="GBP">Pounds Sterling</option>
+                <option value="EUR">Euro</option>
+                <option value="AUD">Australian Dollars</option>
+                <option value="CNY">Yuan</option>
+                <option value="CAD">Canadian Dollars</option>
+                <option value="JPY">Yen</option>
+              </select>
+              <h> : </h>
+              <input id="curroutput" placeholder="0" readonly>
+              <input type="button" id="currsubmit" value="Submit" />
+            </details>
+          </div>
+        </div>
+      </div>
+      <input type="button" id="submit" value="Submit" />
+    </form>
+  </div>
+  <script src="conversions.js"></script>
+</body>
+
+</html>
