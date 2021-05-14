@@ -1,17 +1,20 @@
 /* "global variable" */
 :root{
-    --white: #ffffff;
-    --grey: #808080;
-    --head: #000000;
+    --text: #ffffff;
+    --over: #0f162b;
+    --details: #080316;
+    --head: #FFFFFF;
+    --back: #121212;
+    --hist: #152028;
+    --test: #f1f1f1;
 }
 
 body{
-    background:palegreen;
+    background: var(--back);
 }
 
 .parent-dark{
-    background: #121212;
-    
+    background: #152028;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -19,6 +22,7 @@ body{
 
 /* "flex" */
 .parent{
+    background: #8a8a8a;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -32,6 +36,7 @@ body{
 .header>input[type="button"]{
     position: absolute;
     background-color: lightgray;
+    color: #000000;
     top: 10px;
     right: 3px;
 }
@@ -60,7 +65,8 @@ body{
 
 .distance{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: var(--grey);
+    background-color: var(--details);
+    color: var(--text);
     border-left: 0;
     border-radius: 0;
     border-top-right-radius: 4px;
@@ -72,12 +78,13 @@ body{
 
 /* "at least two pseudo classes" 1/4 */
 .distance:hover{
-    background-color: var(--white);
+    background-color: var(--over);
 }
 
 .volume{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: var(--grey);
+    background-color: var(--details);
+    color: var(--text);
     border-left: 0;
     border-radius: 0;
     border-top-right-radius: 4px;
@@ -89,12 +96,13 @@ body{
 
 /* "at least two pseudo classes" 2/4 */
 .volume:hover{
-    background-color: var(--white);
+    background-color: var(--over);
 }
 
 .mass{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: var(--grey);
+    background-color: var(--details);
+    color: var(--text);
     border-left: 0;
     border-radius: 0;
     border-top-right-radius: 4px;
@@ -106,12 +114,13 @@ body{
 
 /* "at least two pseudo classes" 3/4 */
 .mass:hover{
-    background-color: var(--white);
+    background-color: var(--over);
 }
 
 .time{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: var(--grey);
+    background-color: var(--details);
+    color: var(--text);
     border-left: 0;
     border-radius: 0;
     border-top-right-radius: 4px;
@@ -123,12 +132,13 @@ body{
 
 /* "at least two pseudo classes" 4/4 */
 .time:hover{
-    background-color: var(--white);
+    background-color: var(--over);
 }
 
 .temperature{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: var(--grey);
+    background-color: var(--details);
+    color: var(--text);
     border-left: 0;
     border-radius: 0;
     border-top-right-radius: 4px;
@@ -139,12 +149,13 @@ body{
 }
 
 .temperature:hover{
-    background-color: var(--white);
+    background-color: var(--over);
 }
 
 .currency{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: var(--grey);
+    background-color: var(--details);
+    color: var(--text);
     border-left: 0;
     border-radius: 0;
     border-top-right-radius: 4px;
@@ -155,7 +166,7 @@ body{
 }
 
 .currency:hover{
-    background-color: var(--white);
+    background-color: var(--over);
 }
 
 /* "custom attribute (data-)" */
@@ -171,10 +182,15 @@ body{
 /* "transparency control" */
 input[type="button"]{
     background-color: transparent;
+    color: var(--text);
 }
 
 input[type="button"]:hover{
-    background-color: #00ff7f;
+    cursor: pointer;
+}
+
+input[id="submit"]{
+    background-color: var(--details);
 }
 
 /* "shaped made by border radius setting" (Extra round for that extra vintage look) */
@@ -189,16 +205,27 @@ select{
 
 /* "parent-child classes" */
 .history>textarea{
+    background-color: var(--details);
+    color: var(--text);
     resize: none;
     overflow-y: scroll;
     width: 400px;
     height: 300px;
+    margin: 10px;
 }
+
 .history>input[type="button"]{
-    background-color: gray;
+    background-color: transparent;
+    color: var(--text);
+    margin: 10px;
+}
+
+.history>h{
+    color: var(--head);
 }
 
 .history{
+    background: var(--hist);
     display: flex;
     flex-direction: column;
     position: absolute;

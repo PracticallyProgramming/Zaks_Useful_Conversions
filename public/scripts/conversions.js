@@ -475,15 +475,25 @@ function clearHistory(){
 // Swap background color between light and dark modes.
 function toggleMode(){
     // "contains method (classList)""
-    if(parent.classList.contains("parent")){
+    if(parent.classList.contains("parent")){ // Switching to Dark Mode
         // "class toggle"
         parent.classList.toggle("parent");
         parent.classList.toggle("parent-dark");
+        root.style.setProperty('--back', '#121212');
         root.style.setProperty('--head', '#FFFFFF');
-    }else{
+        root.style.setProperty('--hist', '#152028');
+        root.style.setProperty('--details', '#080316');
+        root.style.setProperty('--text', '#ffffff');
+        root.style.setProperty('--over', '#0f162b');
+    }else{                                   // Switching to Light Mode
         parent.classList.toggle("parent-dark");
         parent.classList.toggle("parent");
+        root.style.setProperty('--back', '#dadada');
         root.style.setProperty('--head', '#000000');
+        root.style.setProperty('--hist', '#8a8a8a');
+        root.style.setProperty('--details', '#d3cfc7');
+        root.style.setProperty('--text', '#000000');
+        root.style.setProperty('--over', '#f1f1f1');
     }
 }
 
