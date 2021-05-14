@@ -1,7 +1,23 @@
+/* "global variable" */
+:root{
+    --white: #ffffff;
+    --grey: #808080;
+    --head: #000000;
+}
+
 body{
     background:palegreen;
 }
 
+.parent-dark{
+    background: #121212;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* "flex" */
 .parent{
     display: flex;
     align-items: center;
@@ -11,6 +27,13 @@ body{
 .header{
     font-family: 'Courier New', Courier, monospace;
     justify-content: center;
+    color: var(--head);
+}
+.header>input[type="button"]{
+    position: absolute;
+    background-color: lightgray;
+    top: 10px;
+    right: 3px;
 }
 
 .details{
@@ -37,7 +60,7 @@ body{
 
 .distance{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: gray;
+    background-color: var(--grey);
     border-left: 0;
     border-radius: 0;
     border-top-right-radius: 4px;
@@ -45,11 +68,16 @@ body{
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     width: 50%;
+}
+
+/* "at least two pseudo classes" 1/4 */
+.distance:hover{
+    background-color: var(--white);
 }
 
 .volume{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: gray;
+    background-color: var(--grey);
     border-left: 0;
     border-radius: 0;
     border-top-right-radius: 4px;
@@ -57,11 +85,16 @@ body{
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     width: 50%;
+}
+
+/* "at least two pseudo classes" 2/4 */
+.volume:hover{
+    background-color: var(--white);
 }
 
 .mass{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: gray;
+    background-color: var(--grey);
     border-left: 0;
     border-radius: 0;
     border-top-right-radius: 4px;
@@ -69,11 +102,16 @@ body{
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     width: 50%;
+}
+
+/* "at least two pseudo classes" 3/4 */
+.mass:hover{
+    background-color: var(--white);
 }
 
 .time{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: gray;
+    background-color: var(--grey);
     border-left: 0;
     border-radius: 0;
     border-top-right-radius: 4px;
@@ -81,11 +119,16 @@ body{
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     width: 50%;
+}
+
+/* "at least two pseudo classes" 4/4 */
+.time:hover{
+    background-color: var(--white);
 }
 
 .temperature{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: gray;
+    background-color: var(--grey);
     border-left: 0;
     border-radius: 0;
     border-top-right-radius: 4px;
@@ -95,9 +138,13 @@ body{
     width: 50%;
 }
 
+.temperature:hover{
+    background-color: var(--white);
+}
+
 .currency{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: gray;
+    background-color: var(--grey);
     border-left: 0;
     border-radius: 0;
     border-top-right-radius: 4px;
@@ -105,4 +152,56 @@ body{
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     width: 50%;
+}
+
+.currency:hover{
+    background-color: var(--white);
+}
+
+/* "custom attribute (data-)" */
+[data-font="lucida"]{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* "cursor effect" */
+[data-text="output"]{
+    cursor: not-allowed;
+}
+
+/* "transparency control" */
+input[type="button"]{
+    background-color: transparent;
+}
+
+input[type="button"]:hover{
+    background-color: #00ff7f;
+}
+
+/* "shaped made by border radius setting" (Extra round for that extra vintage look) */
+input{
+    border-radius: 50%;
+    text-align: center;
+}
+
+select{
+    border-radius: 50%;
+}
+
+/* "parent-child classes" */
+.history>textarea{
+    resize: none;
+    overflow-y: scroll;
+    width: 400px;
+    height: 300px;
+}
+.history>input[type="button"]{
+    background-color: gray;
+}
+
+.history{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
 }

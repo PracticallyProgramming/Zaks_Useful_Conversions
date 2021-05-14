@@ -10,9 +10,10 @@
 </head>
 
 <body>
-  <div class="parent">
+  <div class="parent" id="parent">
     <div class="header">
       <h1>Zak's Useful Conversions</h1>
+      <input type="button" id="mode" value="Night Mode" data-font="lucida" />
     </div>
     <form>
       <div class="details">
@@ -20,8 +21,8 @@
           <div class="distance">
             <details>
               <summary>Distance</summary>
-              <input type="number" id="distinput" placeholder="0"/>
-              <select id="distselect1">
+              <input type="number" id="distinput" placeholder="0" data-font="lucida" />
+              <select id="distselect1" data-font="lucida">
                 <option value="millimeter">millimeters</option>
                 <option value="centimeter">centimeters</option>
                 <option value="meter">meters</option>
@@ -32,7 +33,7 @@
                 <option value="mile">miles</option>
               </select>
               <h>to</h>
-              <select id="distselect2">
+              <select id="distselect2" data-font="lucida">
                 <option value="millimeter">millimeters</option>
                 <option value="centimeter">centimeters</option>
                 <option value="meter">meters</option>
@@ -43,15 +44,15 @@
                 <option value="mile">miles</option>
               </select>
               <h> : </h>
-              <input id="distoutput" placeholder="0" readonly> </textarea>
-              <input type="button" id="distsubmit" value="Submit" />
+              <input id="distoutput" placeholder="0" readonly data-font="lucida" data-text="output"> </textarea>
+              <input type="button" id="distsubmit" value="Submit" data-font="lucida" />
             </details>
           </div>
           <div class="volume">
             <details>
               <summary>Volume</summary>
-              <input type="number" id="volinput" placeholder="0"/>
-              <select id="volselect1">
+              <input type="number" id="volinput" placeholder="0" data-font="lucida" />
+              <select id="volselect1" data-font="lucida">
                 <option value="liter">liters</option>
                 <option value="fluidOunce">ounces</option>
                 <option value="cup">cups</option>
@@ -60,7 +61,7 @@
                 <option value="gallon">gallons</option>
               </select>
               <h>to</h>
-              <select id="volselect2">
+              <select id="volselect2" data-font="lucida">
                 <option value="liter">liters</option>
                 <option value="fluidOunce">ounces</option>
                 <option value="cup">cups</option>
@@ -69,8 +70,8 @@
                 <option value="gallon">gallons</option>
               </select>
               <h> : </h>
-              <input id="voloutput" placeholder="0" readonly> </textarea>
-              <input type="button" id="volsubmit" value="Submit" />
+              <input id="voloutput" placeholder="0" readonly data-font="lucida" data-text="output"> </textarea>
+              <input type="button" id="volsubmit" value="Submit" data-font="lucida" />
             </details>
           </div>
         </div>
@@ -78,8 +79,8 @@
           <div class="mass">
             <details>
               <summary>Mass / Weight</summary>
-              <input type="number" id="massinput" placeholder="0"/>
-              <select id="massselect1">
+              <input type="number" id="massinput" placeholder="0" data-font="lucida"/>
+              <select id="massselect1" data-font="lucida">
                 <option value="milligram">milligrams</option>
                 <option value="gram">grams</option>
                 <option value="kilogram">kilograms</option>
@@ -88,7 +89,7 @@
                 <option value="stone">stones</option>
               </select>
               <h>to</h>
-              <select id="massselect2">
+              <select id="massselect2" data-font="lucida">
                 <option value="milligram">milligrams</option>
                 <option value="gram">grams</option>
                 <option value="kilogram">kilograms</option>
@@ -97,15 +98,15 @@
                 <option value="stone">stones</option>
               </select>
               <h> : </h>
-              <input id="massoutput" placeholder="0" readonly>
-              <input type="button" id="masssubmit" value="Submit" />
+              <input id="massoutput" placeholder="0" readonly data-font="lucida" data-text="output">
+              <input type="button" id="masssubmit" value="Submit" data-font="lucida" />
             </details>
           </div>
           <div class="time">
             <details>
               <summary>Time</summary>
-              <input type="number" id="timeinput" placeholder="0"/>
-              <select id="timeselect1">
+              <input type="number" id="timeinput" placeholder="0" data-font="lucida" />
+              <select id="timeselect1" data-font="lucida">
                 <option value="second">seconds</option>
                 <option value="minute">minutes</option>
                 <option value="hour">hours</option>
@@ -114,7 +115,7 @@
                 <option value="year">years</option>
               </select>
               <h>to</h>
-              <select id="timeselect2">
+              <select id="timeselect2" data-font="lucida">
                 <option value="second">seconds</option>
                 <option value="minute">minutes</option>
                 <option value="hour">hours</option>
@@ -123,8 +124,8 @@
                 <option value="year">years</option>
               </select>
               <h> : </h>
-              <input id="timeoutput" placeholder="0" readonly>
-              <input type="button" id="timesubmit" value="Submit" />
+              <input id="timeoutput" placeholder="0" readonly data-font="lucida" data-text="output">
+              <input type="button" id="timesubmit" value="Submit" data-font="lucida" />
             </details>
           </div>
         </div>
@@ -132,55 +133,44 @@
           <div class="temperature">
             <details>
               <summary>Temperature</summary>
-              <input type="number" id="tempinput" placeholder="0"/>
-              <select id="tempselect1">
+              <input type="number" id="tempinput" placeholder="0" data-font="lucida" />
+              <select id="tempselect1" data-font="lucida">
                 <option value="fahrenheit">degrees Fahrenheit</option>
                 <option value="centigrade">degrees Centigrade</option>
                 <option value="kelvin">Kelvin</option>
               </select>
               <h>to</h>
-              <select id="tempselect2">
+              <select id="tempselect2" data-font="lucida">
                 <option value="fahrenheit">degrees Fahrenheit</option>
                 <option value="centigrade">degrees Centigrade</option>
                 <option value="kelvin">Kelvin</option>
               </select>
               <h> : </h>
-              <input id="tempoutput" placeholder="0" readonly>
-              <input type="button" id="tempsubmit" value="Submit" />
+              <input id="tempoutput" placeholder="0" readonly data-font="lucida" data-text="output">
+              <input type="button" id="tempsubmit" value="Submit" data-font="lucida" />
             </details>
           </div>
           <div class="currency">
-            <details>
+            <details id="currency">
               <summary>Currency</summary>
-              <input type="number" id="currinput" placeholder="0"/>
-              <select id="currselect1">
-                <option value="USD">US Dollars</option>
-                <option value="GBP">Pounds Sterling</option>
-                <option value="EUR">Euro</option>
-                <option value="AUD">Australian Dollars</option>
-                <option value="CNY">Yuan</option>
-                <option value="CAD">Canadian Dollars</option>
-                <option value="JPY">Yen</option>
-              </select>
+              <input type="number" id="currinput" placeholder="0" data-font="lucida" />
+              <select id="currselect1" data-font="lucida"></select>
               <h>to</h>
-              <select id="currselect2">
-                <option value="USD">US Dollars</option>
-                <option value="GBP">Pounds Sterling</option>
-                <option value="EUR">Euro</option>
-                <option value="AUD">Australian Dollars</option>
-                <option value="CNY">Yuan</option>
-                <option value="CAD">Canadian Dollars</option>
-                <option value="JPY">Yen</option>
-              </select>
+              <select id="currselect2" data-font="lucida"></select>
               <h> : </h>
-              <input id="curroutput" placeholder="0" readonly>
-              <input type="button" id="currsubmit" value="Submit" />
+              <input id="curroutput" placeholder="0" readonly data-font="lucida" data-text="output">
+              <input type="button" id="currsubmit" value="Submit" data-font="lucida" />
             </details>
           </div>
         </div>
       </div>
       <input type="button" id="submit" value="Submit" />
     </form>
+  </div>
+  <div class="history">
+    <h data-font="lucida">Conversion History:</h>
+    <input type="button" id="clear" value="Clear History" data-font="lucida" />
+    <textarea id="hist" readonly data-text="output"></textarea>
   </div>
   <script src="./scripts/conversions.js"></script>
 </body>

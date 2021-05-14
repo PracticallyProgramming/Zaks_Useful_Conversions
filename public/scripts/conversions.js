@@ -1,6 +1,7 @@
 // Author: Zachary Dulac <zdulac@fordham.edu>
 // Internet and Web Programming Final Project
 
+const root = document.querySelector(':root');
 const distinput = document.getElementById('distinput');
 const distselect1 = document.getElementById('distselect1');
 const distselect2 = document.getElementById('distselect2');
@@ -32,11 +33,19 @@ const currselect2 = document.getElementById('currselect2');
 const curroutput = document.getElementById('curroutput');
 const currsubmit = document.getElementById('currsubmit');
 const submit = document.getElementById('submit');
+const history = document.getElementById('hist');
+const clear = document.getElementById('clear');
+const mode = document.getElementById('mode');
+const parent = document.getElementById('parent');
 
 // Conversion functions for the appropriate tools.
 async function convertDistance(){
     console.log('Distance');
     let dist = distinput.value;
+    if(dist == ""){
+        dist = 0;
+    }
+    let distIn = dist;
     let fromUnit = distselect1.value;
     let toUnit = distselect2.value;
     
@@ -96,11 +105,16 @@ async function convertDistance(){
 
     // Removing any floating point precision past this place will prevent counter-intuitive results caused by the conversions between imperial and metric units (i.e. 2 yards = 6.0000001 feet)
     distoutput.value = dist.toFixed(6);
-
+    saveHistory(distIn, toUnit, fromUnit, dist);
+    loadHistory();
 }
 
 async function convertVolume(){
     let vol = volinput.value;
+    if(vol == ""){
+        vol = 0;
+    }
+    let volIn = vol;
     let fromUnit = volselect1.value;
     let toUnit = volselect2.value;
     
@@ -150,10 +164,16 @@ async function convertVolume(){
     }
 
     voloutput.value = vol.toFixed(5);
+    saveHistory(volIn, toUnit, fromUnit, vol);
+    loadHistory();
 }
 
 async function convertMass(){
     let mass = massinput.value;
+    if(mass == ""){
+        mass = 0;
+    }
+    let massIn = mass;
     let fromUnit = massselect1.value;
     let toUnit = massselect2.value;
 
@@ -198,13 +218,19 @@ async function convertMass(){
                 mass = gToSt(mass);
                 break;
         }
-
-        massoutput.value = mass.toFixed(4);
     }
+
+    massoutput.value = mass.toFixed(4);
+    saveHistory(massIn, toUnit, fromUnit, mass);
+    loadHistory();
 }
 
 function convertTime(){
     let time = timeinput.value;
+    if(time == ""){
+        time = 0;
+    }
+    let timeIn = time;
     let fromUnit = timeselect1.value;
     let toUnit = timeselect2.value;
 
@@ -254,10 +280,16 @@ function convertTime(){
     }
 
     timeoutput.value = time;
+    saveHistory(timeIn, toUnit, fromUnit, time);
+    loadHistory();
 }
 
 function convertTemperature(){
     let temp = tempinput.value;
+    if(temp == ""){
+        temp = 0;
+    }
+    let tempIn = temp;
     let fromUnit = tempselect1.value;
     let toUnit = tempselect2.value;
 
@@ -292,13 +324,20 @@ function convertTemperature(){
     }
 
     tempoutput.value = temp;
+    saveHistory(tempIn, toUnit, fromUnit, temp);
+    loadHistory();
 }
 
 async function convertCurrency(){
     let curr = currinput.value;
+    if(curr == ""){
+        curr = 0;
+    }
+    let currIn = curr;
     let fromUnit = currselect1.value;
     let toUnit = currselect2.value;
 
+    // "back-tick string forming"
     await fetch(`https://api.exchangerate-api.com/v4/latest/${fromUnit}`)
         .then(res => res.json())
         .then(data => {
@@ -307,6 +346,8 @@ async function convertCurrency(){
         });
 
     curroutput.value = curr;
+    saveHistory(currIn, toUnit, fromUnit, curr);
+    loadHistory();
 }
 
 // Converter functions
@@ -398,7 +439,55 @@ function sToY(seconds){
     return seconds / 31536000;
 }
 
-// Event Listeners
+function saveHistory(input, toUnit, fromUnit, output){
+    let entry = {'in': input, 'toUnit': toUnit, 'fromUnit': fromUnit, 'out': output};
+    let list = new Array();
+    cookie = JSON.parse(localStorage.getItem('hist'))
+    if(cookie != null){
+        // "spread operator"
+        list = Array(...cookie);
+    }
+    list.push(entry);
+
+    // "JSON.stringify"
+    localStorage.setItem('hist', JSON.stringify(list));
+}
+
+// Fetch history from local storage and display it in the textarea
+function loadHistory(){
+    history.value = '';
+    // "local storage"
+    let historyList = new Array();
+    cookie = JSON.parse(localStorage.getItem('hist'))
+    if(cookie != null){
+        historyList = Array(...cookie);
+    }
+    for(i = 0; i < historyList.length; i++){
+        history.value += `${historyList[i].in} ${historyList[i].fromUnit} = ${historyList[i].out} ${historyList[i].toUnit}\n`;
+    }
+}
+
+function clearHistory(){
+    localStorage.clear();
+    loadHistory();
+}
+
+// Swap background color between light and dark modes.
+function toggleMode(){
+    // "contains method (classList)""
+    if(parent.classList.contains("parent")){
+        // "class toggle"
+        parent.classList.toggle("parent");
+        parent.classList.toggle("parent-dark");
+        root.style.setProperty('--head', '#FFFFFF');
+    }else{
+        parent.classList.toggle("parent-dark");
+        parent.classList.toggle("parent");
+        root.style.setProperty('--head', '#000000');
+    }
+}
+
+// "event listener"
 distsubmit.addEventListener('click', convertDistance);
 volsubmit.addEventListener('click', convertVolume);
 masssubmit.addEventListener('click', convertMass);
@@ -406,7 +495,35 @@ timesubmit.addEventListener('click', convertTime);
 tempsubmit.addEventListener('click', convertTemperature);
 currsubmit.addEventListener('click', convertCurrency);
 submit.addEventListener('click', printAll);
+clear.addEventListener('click', clearHistory);
+mode.addEventListener('click', toggleMode);
 
 async function printAll(){
+
+    let det = document.getElementById('currency');
+    let selectors = det.querySelectorAll('select');
+    console.log(selectors[0]);
+    await fetch(`https://api.exchangerate-api.com/v4/latest/USD`)
+        .then(res => res.json())
+        .then(data =>{
+            
+        });
     
 }
+
+// Code to generate the currency lists
+// "code-generated DOM elements" (Grabs the select elements from the "currency" details tag)
+let det = document.getElementById('currency');
+// "query selectors"
+let selectors = det.querySelectorAll('select');
+// Fetch the list of currencies from the API
+fetch(`https://api.exchangerate-api.com/v4/latest/USD`)
+    .then(res => res.json())
+    .then(data => {
+        let currencies = Object.keys(data.rates);
+        // "array methods (such as map)" (Amend the select elements to contain options for the currencies)
+        selectors[0].innerHTML = currencies.map(currency => `<option value="${currency}">${currency}</option>`);
+        selectors[1].innerHTML = currencies.map(currency => `<option value="${currency}">${currency}</option>`);
+    });
+
+loadHistory();
