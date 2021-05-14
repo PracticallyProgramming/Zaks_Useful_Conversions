@@ -8,3 +8,15 @@ app.use(express.json({ limit: '1mb' }));
 const database = new Datastore('database.db');
 database.loadDatabase();
 
+// "backend-frontend conversations (data exchange)"
+app.post('/api', (request, response) => {
+    const unit = request.body;
+    // "backend database query"
+    database.find(unit, (err, data) => {
+        if (err) {
+          response.end();
+          return;
+        }
+        response.json(data);
+      });
+  });

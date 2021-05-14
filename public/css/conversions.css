@@ -79,6 +79,7 @@ body{
 /* "at least two pseudo classes" 1/4 */
 .distance:hover{
     background-color: var(--over);
+    cursor: pointer;
 }
 
 .volume{
@@ -97,6 +98,7 @@ body{
 /* "at least two pseudo classes" 2/4 */
 .volume:hover{
     background-color: var(--over);
+    cursor: pointer;
 }
 
 .mass{
@@ -115,6 +117,7 @@ body{
 /* "at least two pseudo classes" 3/4 */
 .mass:hover{
     background-color: var(--over);
+    cursor: pointer;
 }
 
 .time{
@@ -133,6 +136,7 @@ body{
 /* "at least two pseudo classes" 4/4 */
 .time:hover{
     background-color: var(--over);
+    cursor: pointer;
 }
 
 .temperature{
@@ -150,6 +154,7 @@ body{
 
 .temperature:hover{
     background-color: var(--over);
+    cursor: pointer;
 }
 
 .currency{
@@ -167,6 +172,7 @@ body{
 
 .currency:hover{
     background-color: var(--over);
+    cursor: pointer;
 }
 
 /* "custom attribute (data-)" */
@@ -189,8 +195,8 @@ input[type="button"]:hover{
     cursor: pointer;
 }
 
-input[id="submit"]{
-    background-color: var(--details);
+input[type="number"]{
+    -moz-appearance: textfield;
 }
 
 /* "shaped made by border radius setting" (Extra round for that extra vintage look) */
@@ -201,6 +207,10 @@ input{
 
 select{
     border-radius: 50%;
+}
+
+select:hover{
+    cursor: pointer;
 }
 
 /* "parent-child classes" */
