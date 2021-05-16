@@ -60,6 +60,8 @@ async function convertDistance(){
     const response = await fetch('/api', options)
     const json = await response.json();
     factor = json[0][toUnit];
+
+    // Calculate the output
     dist *= factor;
 
     distoutput.value = dist;
@@ -77,6 +79,7 @@ async function convertVolume(){
     let fromUnit = volselect1.value;
     let toUnit = volselect2.value;
     
+    // Fetch the conversion factor from the database
     data = {_id:fromUnit};
     const options = {
         method: 'POST',
@@ -88,6 +91,8 @@ async function convertVolume(){
     const response = await fetch('/api', options)
     const json = await response.json();
     factor = json[0][toUnit];
+
+    // Calculate the output
     vol *= factor;
 
     voloutput.value = vol;
@@ -104,6 +109,7 @@ async function convertMass(){
     let fromUnit = massselect1.value;
     let toUnit = massselect2.value;
 
+    // Fetch the conversion factor from the database
     data = {_id:fromUnit};
     const options = {
         method: 'POST',
@@ -115,6 +121,8 @@ async function convertMass(){
     const response = await fetch('/api', options)
     const json = await response.json();
     factor = json[0][toUnit];
+
+    // Calculate the output
     mass *= factor;
 
     massoutput.value = mass;
@@ -131,6 +139,7 @@ async function convertTime(){
     let fromUnit = timeselect1.value;
     let toUnit = timeselect2.value;
 
+    // Fetch the conversion factor from the database
     data = {_id:fromUnit};
     const options = {
         method: 'POST',
@@ -142,6 +151,8 @@ async function convertTime(){
     const response = await fetch('/api', options)
     const json = await response.json();
     factor = json[0][toUnit];
+
+    // Calculate the output
     time *= factor;
 
     timeoutput.value = time;
@@ -206,7 +217,7 @@ async function convertCurrency(){
     await fetch(`https://api.exchangerate-api.com/v4/latest/${fromUnit}`)
         .then(res => res.json())
         .then(data => {
-            er = data.rates[toUnit];
+            er = data.rates[toUnit]; // Find the exchange rate in the response.
             curr *= er;
         });
 
@@ -219,15 +230,15 @@ async function convertCurrency(){
 function saveHistory(input, toUnit, fromUnit, output){
     let entry = {'in': input, 'toUnit': toUnit, 'fromUnit': fromUnit, 'out': output};
     let list = new Array();
-    cookie = JSON.parse(localStorage.getItem('hist'))
+    cookie = JSON.parse(localStorage.getItem('hist')) // Obtain the locally stored history and parse into a JSON object
     if(cookie != null){
         // "spread operator"
-        list = Array(...cookie);
+        list = Array(...cookie); // Convert the JSON object into a list
     }
-    list.push(entry);
+    list.push(entry); // Add the new entry to the list
 
     // "JSON.stringify"
-    localStorage.setItem('hist', JSON.stringify(list));
+    localStorage.setItem('hist', JSON.stringify(list)); // Replace the locally stored list
 }
 
 // Fetch history from local storage and display it in the textarea
@@ -235,11 +246,11 @@ function loadHistory(){
     history.value = '';
     // "local storage"
     let historyList = new Array();
-    cookie = JSON.parse(localStorage.getItem('hist'))
+    cookie = JSON.parse(localStorage.getItem('hist')) // Obtain the locally stored history and parse into a JSON object
     if(cookie != null){
-        historyList = Array(...cookie);
+        historyList = Array(...cookie); // Convert the JSON object into a list
     }
-    for(i = 0; i < historyList.length; i++){
+    for(i = 0; i < historyList.length; i++){ // Parse through the list and display the formatted content of each entry
         history.value += `${historyList[i].in} ${historyList[i].fromUnit} = ${historyList[i].out} ${historyList[i].toUnit}\n`;
     }
 }
