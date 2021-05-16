@@ -1,0 +1,11 @@
+body {
+  background: #121212;
+  color: #ffffff;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.player{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
